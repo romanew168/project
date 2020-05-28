@@ -4,25 +4,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Support.UI;
 
 namespace WebAddressbookTests
 {
     [SetUpFixture]
     public class TestSuiteFixture
     {
-        public static ApplicationManager app;
+        
 
         [SetUp]
         public void InitApplicationManager()
         {
-            app = new ApplicationManager();
+            ApplicationManager app = ApplicationManager.GetInstance();
             app.Navigator.GoToHomePage();
             app.Auth.Login(new AccountData("admin", "secret"));
         }
-        [TearDown]
-        public void StopApplicationManager()
-        {
-            app.Stop();
-        }
+        
     }
 }

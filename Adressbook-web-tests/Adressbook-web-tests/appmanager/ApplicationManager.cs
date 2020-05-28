@@ -2,36 +2,62 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
 
+
+
 namespace WebAddressbookTests
 {
-   public class ApplicationManager 
+    public class ApplicationManager
     {
         protected LoginHelper loginHelper;
         protected NavigationHelper navigator;
         protected GroupHelper grouphelper;
         protected IWebDriver driver;
         protected string baseURL;
+        private static ThreadLocal <ApplicationManager> app = new ThreadLocal<ApplicationManager>();
 
-        public ApplicationManager()
+        private ApplicationManager()
         {
             driver = new ChromeDriver();
             loginHelper = new LoginHelper(this);
             navigator = new NavigationHelper(this);
             grouphelper = new GroupHelper(this);
         }
+        ~ApplicationManager()
+        {
+            try
+            {
+                driver.Quit();
+            }
+            catch (Exception)
+            {
+                // Ignore errors if unable to close the browser
+            }
+        }
 
-        public IWebDriver Driver {
+
+        public static ApplicationManager GetInstance()
+        {
+            if (! app.IsValueCreated)
+            {
+                app.Value = new ApplicationManager();
+             }
+            return app.Value;
+        }
+        public IWebDriver Driver
+        {
             get
             {
                 return driver;
             }
         }
+
         public LoginHelper Auth
         {
             get
@@ -46,7 +72,7 @@ namespace WebAddressbookTests
                 return navigator;
             }
         }
-         public GroupHelper Groups
+        public GroupHelper Groups
         {
             get
             {
@@ -55,18 +81,7 @@ namespace WebAddressbookTests
 
         }
 
-        
-
-        public void Stop()
-        {
-            try
-            {
-                 driver.Quit();
-            }
-            catch (Exception)
-            {
-                // Ignore errors if unable to close the browser
-            }
-        }
     }
+
 }
+        
