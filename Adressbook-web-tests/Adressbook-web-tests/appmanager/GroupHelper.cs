@@ -75,7 +75,7 @@ namespace WebAddressbookTests
 
         public GroupHelper ReturnGroupPage()
         {
-            driver.FindElement(By.LinkText("Logout")).Click();
+            driver.FindElement(By.LinkText("groups")).Click();
             return this;
         }
 

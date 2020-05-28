@@ -61,7 +61,7 @@ namespace WebAddressbookTests
         {
             try
             {
-                // driver.Quit();
+                 driver.Quit();
             }
             catch (Exception)
             {
