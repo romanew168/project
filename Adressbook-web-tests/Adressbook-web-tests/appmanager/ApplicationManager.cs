@@ -10,7 +10,7 @@ using OpenQA.Selenium.Support.UI;
 
 namespace WebAddressbookTests
 {
-   public class ApplicationManager
+   public class ApplicationManager 
     {
         protected LoginHelper loginHelper;
         protected NavigationHelper navigator;
@@ -21,9 +21,16 @@ namespace WebAddressbookTests
         public ApplicationManager()
         {
             driver = new ChromeDriver();
-            loginHelper = new LoginHelper(driver);
-            navigator = new NavigationHelper(driver);
-            grouphelper = new GroupHelper(driver);
+            loginHelper = new LoginHelper(this);
+            navigator = new NavigationHelper(this);
+            grouphelper = new GroupHelper(this);
+        }
+
+        public IWebDriver Driver {
+            get
+            {
+                return driver;
+            }
         }
         public LoginHelper Auth
         {
@@ -47,6 +54,9 @@ namespace WebAddressbookTests
             }
 
         }
+
+        
+
         public void Stop()
         {
             try

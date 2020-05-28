@@ -14,7 +14,7 @@ namespace WebAddressbookTests
     {
         
 
-        public NavigationHelper(IWebDriver driver) : base(driver)
+        public NavigationHelper(ApplicationManager manager) : base(manager)
           {
 
           }
