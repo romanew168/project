@@ -16,7 +16,7 @@ namespace WebAddressbookTests
         protected NavigationHelper navigator;
         protected GroupHelper grouphelper;
         protected IWebDriver driver;
-        protected string baseURL;
+        //protected string baseURL;
 
         public ApplicationManager()
         {

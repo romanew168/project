@@ -16,12 +16,13 @@ namespace WebAddressbookTests
 
         public NavigationHelper(IWebDriver driver) : base(driver)
           {
+
           }
 
         public void GoToHomePage()
         {
             //open homepage
-            driver.Navigate().GoToUrl("http://localhost/addressbook/");
+            driver.Navigate().GoToUrl("http://localhost/addressbook");
         }
 
 
