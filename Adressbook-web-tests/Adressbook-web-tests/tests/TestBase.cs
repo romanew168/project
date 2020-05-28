@@ -1,4 +1,5 @@
 ﻿using NUnit.Framework;
+using OpenQA.Selenium.Chrome;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,7 @@ namespace WebAddressbookTests
         [SetUp]
         public void SetupTest()
         {
+            
             app = new ApplicationManager();
         }
         [TearDown]

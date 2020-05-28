@@ -16,10 +16,11 @@ namespace WebAddressbookTests
         protected NavigationHelper navigator;
         protected GroupHelper grouphelper;
         protected IWebDriver driver;
-        //protected string baseURL;
+        protected string baseURL;
 
         public ApplicationManager()
         {
+            driver = new ChromeDriver();
             loginHelper = new LoginHelper(driver);
             navigator = new NavigationHelper(driver);
             grouphelper = new GroupHelper(driver);
