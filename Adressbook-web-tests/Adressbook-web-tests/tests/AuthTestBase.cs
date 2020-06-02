@@ -10,7 +10,7 @@ namespace WebAddressbookTests
     public class AuthTestBase: TestBase
     {
         [SetUp]
-        public void SetupTest()
+        public void SetupLogin()
         {
             
             app.Auth.Login(new AccountData("admin", "secret"));

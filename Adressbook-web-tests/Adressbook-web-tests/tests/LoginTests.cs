@@ -8,7 +8,7 @@ using NUnit.Framework;
 namespace WebAddressbookTests
 {
     [TestFixture]
-    public class LoginTests:TestBase
+    public class LoginTests: AuthTestBase
     {
         [Test]
         public void LoginValid()

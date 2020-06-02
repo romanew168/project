@@ -14,10 +14,10 @@ namespace WebAddressbookTests
         protected ApplicationManager app;
 
         [SetUp]
-        public void SetupTest()
+        public void SetupApplicationmanager()
         {
             app = ApplicationManager.GetInstance();
-            app.Auth.Login(new AccountData("admin", "secret"));
+            
         }
       
     }
