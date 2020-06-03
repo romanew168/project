@@ -16,8 +16,14 @@ namespace WebAddressbookTests
             GroupData newData = new GroupData("sss");
             newData.Header = null;
             newData.Footer = null;
-            
+
+            List<GroupData> oldgroups = app.Groups.GetGroupList();
             app.Groups.Modify(1, newData);
+            List<GroupData> newgroups = app.Groups.GetGroupList();
+            oldgroups[0].Name = newData.Name;
+            oldgroups.Sort();
+            newgroups.Sort();
+            Assert.AreEqual(oldgroups, newgroups);
         }
 
 
